@@ -1,0 +1,1276 @@
+
+-----------------------------------------------------------------Function main
+; Line 8
+                                                        start function
+; Line 12
+
+; Tree 4
+ADDRLP(foutname)
+reg: addr / 	leal	%0,%c
+	leal	-491806(%ebp),%edi
+ASGNB(
+     ADDRLP(foutname),
+     INDIRB(LOADP(ADDRGP(5))))
+stmt: ASGNB(reg,INDIRB(LOADP(addr))) / 	leal	%1,%%esi
+	movl	$%a,%%ecx
+	rep
+	movsb
+	leal	_$5,%esi
+	movl	$6,%ecx
+	rep
+	movsb
+; Line 13
+
+; Tree 5
+ADDRLP(inputchr)
+reg: addr / 	leal	%0,%c
+	leal	-491785(%ebp),%edi
+ASGNB(
+     ADDRLP(inputchr),
+     INDIRB(LOADP(ADDRGP(6))))
+stmt: ASGNB(reg,INDIRB(LOADP(addr))) / 	leal	%1,%%esi
+	movl	$%a,%%ecx
+	rep
+	movsb
+	leal	_$6,%esi
+	movl	$5,%ecx
+	rep
+	movsb
+; Line 15
+
+; Tree 6
+ADDRLP(summare)
+reg: addr / 	leal	%0,%c
+	leal	-491656(%ebp),%edi
+ASGNB(
+     ADDRLP(summare),
+     INDIRB(LOADP(ADDRGP(7))))
+stmt: ASGNB(reg,INDIRB(LOADP(addr))) / 	leal	%1,%%esi
+	movl	$%a,%%ecx
+	rep
+	movsb
+	leal	_$7,%esi
+	movl	$120,%ecx
+	rep
+	movsb
+; Line 19
+
+; Tree 9
+ASGNI(
+     ADDRLP(k),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-8(%ebp)
+; Line 20
+                                                              if start
+
+; Tree 11
+EQI(
+     INDIRI(ADDRFP(argc)),
+     CNSTI(0))
+stmt: EQI(mem,rc) / 	cmpl	%1,%0
+	je	%a
+	cmpl	$0,8(%ebp)
+	je	_$8
+; Line 21
+
+; Tree 14
+ARGP(ADDRGP(10))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$10
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$4,%esp
+; Line 22
+
+; Tree 16
+ARGP(ADDRGP(11))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$11
+CALLI(ADDRGP(puts))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_puts
+	addl	$4,%esp
+; Line 23
+                                                                   for
+
+; Tree 19
+ASGNI(
+     ADDRLP(i),
+     CNSTI(1))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$1,-4(%ebp)
+
+; Tree 20
+LABELV(12)
+stmt: LABELV / %a:
+_$12:
+; Line 24
+
+; Tree 24
+INDIRD(ADDRGP(16))
+freg: memf / 	fld%0
+	fldl	_$16
+CVDF(CVID(INDIRI(ADDRLP(i))))
+freg: CVDF(CVID(mrc)) / 	push	%0
+	fildl	(%%esp)
+	addl	$4,%%esp
+	push	-4(%ebp)
+	fildl	(%esp)
+	addl	$4,%esp
+CVFD(CVDF(CVID(INDIRI(ADDRLP(i)))))
+freg: CVFD(freg) / # CVFD
+MULD(
+     INDIRD(ADDRGP(16)),
+     CVFD(CVDF(CVID(INDIRI(ADDRLP(i))))))
+freg: MULD(freg,flt) / 	fmul%1
+	fmulp	%st,%st(1)
+ASGNF(
+     ADDRLP(freq),
+     CVDF(MULD(
+               INDIRD(ADDRGP(16)),
+               CVFD(CVDF(CVID(INDIRI(ADDRLP(i))))))))
+stmt: ASGNF(addr,CVDF(freg)) / 	fstps	%0
+	fstps	-491800(%ebp)
+; Line 25
+                                                              if start
+
+; Tree 26
+GEI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(10))
+stmt: GEI(mem,rc) / 	cmpl	%1,%0
+	jge	%a
+	cmpl	$10,-4(%ebp)
+	jge	_$17
+; Line 25
+
+; Tree 28
+CVFD(INDIRF(ADDRLP(freq)))
+freg: memf / 	fld%0
+	flds	-491800(%ebp)
+ARGD(CVFD(INDIRF(ADDRLP(freq))))
+stmt: ARGD(freg) / 	subl	$8,%%esp
+	fstpl	(%%esp)
+	subl	$8,%esp
+	fstpl	(%esp)
+ARGI(INDIRI(ADDRLP(i)))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	-4(%ebp)
+ARGP(ADDRGP(19))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$19
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$16,%esp
+
+; Tree 28
+JUMPV(ADDRGP(18))
+stmt: JUMPV(addrjmp) / 	jmp	%0
+	jmp	_$18
+
+; Tree 28
+LABELV(17)
+stmt: LABELV / %a:
+_$17:
+; Line 26
+                                                                  else
+; Line 26
+
+; Tree 31
+CVFD(INDIRF(ADDRLP(freq)))
+freg: memf / 	fld%0
+	flds	-491800(%ebp)
+ARGD(CVFD(INDIRF(ADDRLP(freq))))
+stmt: ARGD(freg) / 	subl	$8,%%esp
+	fstpl	(%%esp)
+	subl	$8,%esp
+	fstpl	(%esp)
+ARGI(INDIRI(ADDRLP(i)))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	-4(%ebp)
+ARGP(ADDRGP(20))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$20
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$16,%esp
+
+; Tree 31
+LABELV(18)
+stmt: LABELV / %a:
+_$18:
+; Line 27
+                                                                 endif
+; Line 27
+                                                              if start
+
+; Tree 34
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%eax
+CNSTI(3)
+reg: con / 	movl	%0,%c
+	movl	$3,%ecx
+MODI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(3))
+reg: MODI(reg,reg) / 	cdq
+	idivl	%1
+	cdq
+	idivl	%ecx
+NEI(
+     MODI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(3)),
+     CNSTI(0))
+stmt: NEI(reg,mrc) / 	cmpl	%1,%0
+	jne	%a
+	cmpl	$0,%edx
+	jne	_$21
+; Line 27
+
+; Tree 36
+ARGP(ADDRGP(23))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$23
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$4,%esp
+
+; Tree 36
+LABELV(21)
+stmt: LABELV / %a:
+_$21:
+; Line 28
+                                                                 endif
+
+; Tree 37
+LABELV(13)
+stmt: LABELV / %a:
+_$13:
+; Line 23
+
+; Tree 38
+ASGNI(
+     ADDRLP(i),
+     ADDI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	-4(%ebp)
+; Line 23
+
+; Tree 39
+LTI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(61))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$61,-4(%ebp)
+	jl	_$12
+; Line 29
+                                                               end for
+
+; Tree 40
+LABELV(8)
+stmt: LABELV / %a:
+_$8:
+; Line 30
+                                                                 endif
+; Line 30
+
+; Tree 43
+ARGP(ADDRGP(23))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$23
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$4,%esp
+; Line 31
+
+; Tree 45
+ARGP(ADDRGP(24))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$24
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$4,%esp
+; Line 32
+
+; Tree 47
+ADDRLP(filename)
+reg: addr / 	leal	%0,%c
+	leal	-491846(%ebp),%edi
+ARGP(ADDRLP(filename))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLI(ADDRGP(gets))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_gets
+	addl	$4,%esp
+; Line 33
+
+; Tree 50
+ASGNI(
+     ADDRLP(i),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-4(%ebp)
+; Line 34
+                                                              if start
+
+; Tree 53
+ARGP(ADDRGP(27))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$27
+ADDRLP(filename)
+reg: addr / 	leal	%0,%c
+	leal	-491846(%ebp),%edi
+ARGP(ADDRLP(filename))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLI(ADDRGP(fopen))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fopen
+	addl	$8,%esp
+ASGNI(
+     VREGP(67),
+     LOADI(CALLI(ADDRGP(fopen))))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(67))
+reg: INDIRI(VREGP) / # read register
+ASGNP(
+     ADDRLP(fileptr),
+     INDIRI(VREGP(67)))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%eax,-491792(%ebp)
+INDIRI(VREGP(67))
+reg: INDIRI(VREGP) / # read register
+NEI(
+     INDIRI(VREGP(67)),
+     CNSTU(0))
+stmt: NEI(reg,mrc) / 	cmpl	%1,%0
+	jne	%a
+	cmpl	$0,%eax
+	jne	_$25
+; Line 35
+
+; Tree 56
+ADDRLP(filename)
+reg: addr / 	leal	%0,%c
+	leal	-491846(%ebp),%edi
+ARGP(ADDRLP(filename))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLV(ADDRGP(perror))
+stmt: CALLV(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_perror
+	addl	$4,%esp
+; Line 36
+
+; Tree 58
+ARGP(CNSTP(0))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$0
+ARGI(CNSTI(0))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	$0
+CALLI(ADDRGP(main))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_main
+	addl	$8,%esp
+; Line 37
+                                                                return
+
+; Tree 60
+CNSTI(1)
+reg: con / 	movl	%0,%c
+	movl	$1,%eax
+RETI(CNSTI(1))
+stmt: RETI(reg) / # ret
+
+; Tree 60
+JUMPV(ADDRGP(4))
+stmt: JUMPV(addrjmp) / 	jmp	%0
+	jmp	_$4
+
+; Tree 60
+LABELV(25)
+stmt: LABELV / %a:
+_$25:
+; Line 40
+                                                                 endif
+; Line 40
+                                                              if start
+
+; Tree 64
+ARGP(ADDRGP(30))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$30
+ADDRLP(foutname)
+reg: addr / 	leal	%0,%c
+	leal	-491806(%ebp),%edi
+ARGP(ADDRLP(foutname))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLI(ADDRGP(fopen))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fopen
+	addl	$8,%esp
+ASGNI(
+     VREGP(68),
+     LOADI(CALLI(ADDRGP(fopen))))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(68))
+reg: INDIRI(VREGP) / # read register
+ASGNP(
+     ADDRLP(fwriter),
+     INDIRI(VREGP(68)))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%eax,-491780(%ebp)
+INDIRI(VREGP(68))
+reg: INDIRI(VREGP) / # read register
+NEI(
+     INDIRI(VREGP(68)),
+     CNSTU(0))
+stmt: NEI(reg,mrc) / 	cmpl	%1,%0
+	jne	%a
+	cmpl	$0,%eax
+	jne	_$32
+; Line 41
+
+; Tree 67
+ADDRLP(foutname)
+reg: addr / 	leal	%0,%c
+	leal	-491806(%ebp),%edi
+ARGP(ADDRLP(foutname))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLV(ADDRGP(perror))
+stmt: CALLV(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_perror
+	addl	$4,%esp
+; Line 42
+
+; Tree 69
+ARGP(CNSTP(0))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$0
+ARGI(CNSTI(0))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	$0
+CALLI(ADDRGP(main))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_main
+	addl	$8,%esp
+; Line 43
+                                                                return
+
+; Tree 71
+CNSTI(1)
+reg: con / 	movl	%0,%c
+	movl	$1,%eax
+RETI(CNSTI(1))
+stmt: RETI(reg) / # ret
+
+; Tree 71
+JUMPV(ADDRGP(4))
+stmt: JUMPV(addrjmp) / 	jmp	%0
+	jmp	_$4
+; Line 46
+                                                                 endif
+
+; Tree 74
+LABELV(31)
+stmt: LABELV / %a:
+_$31:
+; Line 48
+                                                              if start
+
+; Tree 77
+EQI(
+     CVCI(INDIRC(ADDRLP(c))),
+     CNSTI(10))
+stmt: EQI(mem8,con) / 	cmpb	%1,%0
+	je	%a
+	cmpb	$10,-491786(%ebp)
+	je	_$34
+; Line 49
+
+; Tree 81
+ASGNI(
+     ADDRLP(i),
+     ADDI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	-4(%ebp)
+; Line 50
+
+; Tree 83
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%edi
+INDIRC(ADDRLP(c))
+reg: mrb / 	movb	%0,%c
+	movb	-491786(%ebp),%bl
+ASGNC(
+     ADDP(
+          INDIRI(ADDRLP(i)),
+          ADDRLP(inputchr)),
+     INDIRC(ADDRLP(c)))
+stmt: ASGNC(addr,rc) / 	movb	%1,%0
+	movb	%bl,-491785(%ebp,%edi)
+
+; Tree 83
+LABELV(34)
+stmt: LABELV / %a:
+_$34:
+; Line 52
+                                                                 endif
+; Line 52
+                                                              if start
+
+; Tree 86
+EQI(
+     CVCI(INDIRC(ADDRLP(c))),
+     CNSTI(10))
+stmt: EQI(mem8,con) / 	cmpb	%1,%0
+	je	%a
+	cmpb	$10,-491786(%ebp)
+	je	_$38
+LEI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(4))
+stmt: LEI(mem,rc) / 	cmpl	%1,%0
+	jle	%a
+	cmpl	$4,-4(%ebp)
+	jle	_$36
+LABELV(38)
+stmt: LABELV / %a:
+_$38:
+; Line 53
+
+; Tree 90
+ADDRLP(inputchr)
+reg: addr / 	leal	%0,%c
+	leal	-491785(%ebp),%edi
+ARGP(ADDRLP(inputchr))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLI(ADDRGP(atoi))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_atoi
+	addl	$4,%esp
+ASGNI(
+     VREGP(69),
+     LOADI(CALLI(ADDRGP(atoi))))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(69))
+reg: INDIRI(VREGP) / # read register
+ASGNI(
+     ADDRLP(input),
+     INDIRI(VREGP(69)))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	%eax,-491796(%ebp)
+; Line 57
+
+; Tree 93
+ARGI(INDIRI(ADDRLP(input)))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	-491796(%ebp)
+ADDRLP(filtered)
+reg: addr / 	leal	%0,%c
+	leal	-491776(%ebp),%edi
+ARGP(ADDRLP(filtered))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLV(ADDRGP(Filtering))
+stmt: CALLV(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_Filtering
+	addl	$8,%esp
+; Line 58
+
+; Tree 96
+INDIRI(ADDRLP(k))
+reg: mr / 	movl	%0,%c
+	movl	-8(%ebp),%edi
+ASGNI(
+     VREGP(70),
+     INDIRI(ADDRLP(k)))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(70))
+reg: INDIRI(VREGP) / # read register
+ADDI(
+     INDIRI(VREGP(70)),
+     CNSTI(1))
+reg: ADDI(reg,mrc) / ?	movl	%0,%c
+	addl	%1,%c
+	movl	%edi,%esi
+	addl	$1,%esi
+ASGNI(
+     ADDRLP(k),
+     ADDI(
+          INDIRI(VREGP(70)),
+          CNSTI(1)))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	%esi,-8(%ebp)
+INDIRI(VREGP(70))
+reg: INDIRI(VREGP) / # read register
+MULI(
+     CNSTI(120),
+     INDIRI(VREGP(70)))
+reg: MULI(con,mr) / 	imul	%0,%1,%c%o
+	imul	$120,%edi,%edi
+ADDP(
+     MULI(
+          CNSTI(120),
+          INDIRI(VREGP(70))),
+     ADDRLP(exited))
+reg: ADDP(reg,frameoffset) / 	leal	%1(%%ebp,%0),%c
+	leal	-491528(%ebp,%edi),%edi
+ASGNB(
+     ADDP(
+          MULI(
+               CNSTI(120),
+               INDIRI(VREGP(70))),
+          ADDRLP(exited)),
+     INDIRB(LOADP(ADDRLP(filtered))))
+stmt: ASGNB(reg,INDIRB(LOADP(addr))) / 	leal	%1,%%esi
+	movl	$%a,%%ecx
+	rep
+	movsb
+	leal	-491776(%ebp),%esi
+	movl	$120,%ecx
+	rep
+	movsb
+; Line 59
+                                                              if start
+
+; Tree 98
+NEI(
+     INDIRI(ADDRLP(k)),
+     CNSTI(1))
+stmt: NEI(mem,rc) / 	cmpl	%1,%0
+	jne	%a
+	cmpl	$1,-8(%ebp)
+	jne	_$40
+; Line 59
+
+; Tree 100
+ARGP(ADDRGP(42))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$42
+ARGP(INDIRP(ADDRLP(fwriter)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491780(%ebp)
+CALLI(ADDRGP(fprintf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fprintf
+	addl	$8,%esp
+
+; Tree 100
+LABELV(40)
+stmt: LABELV / %a:
+_$40:
+; Line 60
+                                                                 endif
+; Line 60
+                                                                   for
+
+; Tree 104
+ASGNI(
+     ADDRLP(j),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-491532(%ebp)
+
+; Tree 105
+LABELV(43)
+stmt: LABELV / %a:
+_$43:
+; Line 60
+
+; Tree 107
+INDIRI(ADDRLP(j))
+reg: mr / 	movl	%0,%c
+	movl	-491532(%ebp),%edi
+INDIRD(ADDP(
+          LSHI(
+               INDIRI(ADDRLP(j)),
+               CNSTI(3)),
+          ADDRLP(filtered)))
+freg: memf / 	fld%0
+	fldl	-491776(%ebp,%edi,8)
+ARGD(INDIRD(ADDP(
+               LSHI(
+                    INDIRI(ADDRLP(j)),
+                    CNSTI(3)),
+               ADDRLP(filtered))))
+stmt: ARGD(freg) / 	subl	$8,%%esp
+	fstpl	(%%esp)
+	subl	$8,%esp
+	fstpl	(%esp)
+ARGP(ADDRGP(47))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$47
+ARGP(INDIRP(ADDRLP(fwriter)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491780(%ebp)
+CALLI(ADDRGP(fprintf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fprintf
+	addl	$16,%esp
+
+; Tree 107
+LABELV(44)
+stmt: LABELV / %a:
+_$44:
+; Line 60
+
+; Tree 108
+ASGNI(
+     ADDRLP(j),
+     ADDI(
+          INDIRI(ADDRLP(j)),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	-491532(%ebp)
+; Line 60
+
+; Tree 109
+LTI(
+     INDIRI(ADDRLP(j)),
+     CNSTI(14))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$14,-491532(%ebp)
+	jl	_$43
+; Line 61
+                                                               end for
+; Line 61
+
+; Tree 112
+INDIRD(ADDRLP(49))
+freg: memf / 	fld%0
+	fldl	-491664(%ebp)
+ARGD(INDIRD(ADDRLP(49)))
+stmt: ARGD(freg) / 	subl	$8,%%esp
+	fstpl	(%%esp)
+	subl	$8,%esp
+	fstpl	(%esp)
+ARGP(ADDRGP(48))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$48
+ARGP(INDIRP(ADDRLP(fwriter)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491780(%ebp)
+CALLI(ADDRGP(fprintf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fprintf
+	addl	$16,%esp
+; Line 62
+                                                              if start
+
+; Tree 114
+NEI(
+     INDIRI(ADDRLP(k)),
+     CNSTI(4096))
+stmt: NEI(mem,rc) / 	cmpl	%1,%0
+	jne	%a
+	cmpl	$4096,-8(%ebp)
+	jne	_$50
+; Line 62
+
+; Tree 116
+ARGP(ADDRGP(52))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$52
+ARGP(INDIRP(ADDRLP(fwriter)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491780(%ebp)
+CALLI(ADDRGP(fprintf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fprintf
+	addl	$8,%esp
+
+; Tree 116
+LABELV(50)
+stmt: LABELV / %a:
+_$50:
+; Line 66
+                                                                 endif
+; Line 66
+                                                                   for
+
+; Tree 120
+ASGNI(
+     ADDRLP(i),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-4(%ebp)
+
+; Tree 121
+LABELV(53)
+stmt: LABELV / %a:
+_$53:
+; Line 66
+
+; Tree 123
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%edi
+ASGNC(
+     ADDP(
+          INDIRI(ADDRLP(i)),
+          ADDRLP(inputchr)),
+     CNSTC(10))
+stmt: ASGNC(addr,rc) / 	movb	%1,%0
+	movb	$10,-491785(%ebp,%edi)
+
+; Tree 123
+LABELV(54)
+stmt: LABELV / %a:
+_$54:
+; Line 66
+
+; Tree 124
+ASGNI(
+     ADDRLP(i),
+     ADDI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	-4(%ebp)
+; Line 66
+
+; Tree 125
+LTI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(5))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$5,-4(%ebp)
+	jl	_$53
+; Line 67
+                                                               end for
+; Line 67
+
+; Tree 129
+ASGNI(
+     ADDRLP(i),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-4(%ebp)
+
+; Tree 129
+LABELV(36)
+stmt: LABELV / %a:
+_$36:
+; Line 71
+                                                                 endif
+
+; Tree 130
+LABELV(32)
+stmt: LABELV / %a:
+_$32:
+; Line 46
+                                                                 while
+
+; Tree 131
+ARGP(INDIRP(ADDRLP(fileptr)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491792(%ebp)
+CALLI(ADDRGP(getc))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_getc
+	addl	$4,%esp
+ASGNI(
+     VREGP(71),
+     LOADI(CALLI(ADDRGP(getc))))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(71))
+reg: INDIRI(VREGP) / # read register
+CVIC(INDIRI(VREGP(71)))
+reg: CVIC(reg) / # truncate
+	movl	%ax,%bx
+ASGNC(
+     VREGP(72),
+     CVIC(INDIRI(VREGP(71))))
+stmt: ASGNC(VREGP,reg) / # write register
+INDIRC(VREGP(72))
+reg: INDIRC(VREGP) / # read register
+ASGNC(
+     ADDRLP(c),
+     INDIRC(VREGP(72)))
+stmt: ASGNC(addr,rc) / 	movb	%1,%0
+	movb	%bl,-491786(%ebp)
+INDIRC(VREGP(72))
+reg: INDIRC(VREGP) / # read register
+CVCI(INDIRC(VREGP(72)))
+reg: CVCI(reg) / # extend
+	movsbl	%bl,%edi
+NEI(
+     CVCI(INDIRC(VREGP(72))),
+     CNSTI(-1))
+stmt: NEI(reg,mrc) / 	cmpl	%1,%0
+	jne	%a
+	cmpl	$-1,%edi
+	jne	_$31
+; Line 73
+                                                             end while
+; Line 73
+
+; Tree 134
+ARGP(INDIRP(ADDRLP(fileptr)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491792(%ebp)
+CALLI(ADDRGP(fclose))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fclose
+	addl	$4,%esp
+; Line 74
+
+; Tree 136
+ARGP(INDIRP(ADDRLP(fwriter)))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	-491780(%ebp)
+CALLI(ADDRGP(fclose))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_fclose
+	addl	$4,%esp
+; Line 76
+                                                                   for
+
+; Tree 139
+ASGNI(
+     ADDRLP(i),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-4(%ebp)
+
+; Tree 140
+LABELV(57)
+stmt: LABELV / %a:
+_$57:
+; Line 77
+                                                                   for
+
+; Tree 144
+ASGNI(
+     ADDRLP(k),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,-8(%ebp)
+
+; Tree 145
+LABELV(61)
+stmt: LABELV / %a:
+_$61:
+; Line 77
+
+; Tree 164
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%edi
+ADDP(
+     LSHI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(3)),
+     ADDRLP(summare))
+reg: addr / 	leal	%0,%c
+	leal	-491656(%ebp,%edi,8),%edi
+ASGNP(
+     VREGP(73),
+     ADDP(
+          LSHI(
+               INDIRI(ADDRLP(i)),
+               CNSTI(3)),
+          ADDRLP(summare)))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%esi
+MULI(
+     CNSTI(120),
+     INDIRI(ADDRLP(k)))
+reg: MULI(con,mr) / 	imul	%0,%1,%c%o
+	imul	$120,-8(%ebp),%ebx
+ADDP(
+     MULI(
+          CNSTI(120),
+          INDIRI(ADDRLP(k))),
+     ADDRLP(exited))
+reg: ADDP(reg,frameoffset) / 	leal	%1(%%ebp,%0),%c
+	leal	-491528(%ebp,%ebx),%ebx
+INDIRD(ADDP(
+          LSHI(
+               INDIRI(ADDRLP(i)),
+               CNSTI(3)),
+          ADDP(
+               MULI(
+                    CNSTI(120),
+                    INDIRI(ADDRLP(k))),
+               ADDRLP(exited))))
+freg: memf / 	fld%0
+	fldl	(%ebx,%esi,8)
+ASGND(
+     ADDRLP(74),
+     INDIRD(ADDP(
+               LSHI(
+                    INDIRI(ADDRLP(i)),
+                    CNSTI(3)),
+               ADDP(
+                    MULI(
+                         CNSTI(120),
+                         INDIRI(ADDRLP(k))),
+                    ADDRLP(exited)))))
+stmt: ASGND(addr,freg) / 	fstpl	%0
+	fstpl	-491856(%ebp)
+INDIRP(VREGP(73))
+reg: INDIRP(VREGP) / # read register
+INDIRD(ADDRLP(74))
+freg: memf / 	fld%0
+	fldl	-491856(%ebp)
+MULD(
+     INDIRD(ADDRLP(74)),
+     INDIRD(ADDRLP(74)))
+freg: MULD(freg,flt) / 	fmul%1
+	fmull	-491856(%ebp)
+INDIRP(VREGP(73))
+reg: INDIRP(VREGP) / # read register
+ADDD(
+     MULD(
+          INDIRD(ADDRLP(74)),
+          INDIRD(ADDRLP(74))),
+     INDIRD(INDIRP(VREGP(73))))
+freg: ADDD(freg,flt) / 	fadd%1
+	faddl	(,%edi)
+ASGND(
+     INDIRP(VREGP(73)),
+     ADDD(
+          MULD(
+               INDIRD(ADDRLP(74)),
+               INDIRD(ADDRLP(74))),
+          INDIRD(INDIRP(VREGP(73)))))
+stmt: ASGND(addr,freg) / 	fstpl	%0
+	fstpl	(,%edi)
+
+; Tree 147
+LABELV(62)
+stmt: LABELV / %a:
+_$62:
+; Line 77
+
+; Tree 148
+ASGNI(
+     ADDRLP(k),
+     ADDI(
+          INDIRI(ADDRLP(k)),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	-8(%ebp)
+; Line 77
+
+; Tree 149
+LTI(
+     INDIRI(ADDRLP(k)),
+     CNSTI(4096))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$4096,-8(%ebp)
+	jl	_$61
+; Line 78
+                                                               end for
+; Line 78
+
+; Tree 164
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%edi
+LSHI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(1))
+reg: LSHI(reg,rc5) / ?	movl	%0,%c
+	sall	%1,%c
+	sall	$1,%edi
+ADDI(
+     LSHI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(1)),
+     CNSTI(2))
+reg: ADDI(reg,mrc) / ?	movl	%0,%c
+	addl	%1,%c
+	addl	$2,%edi
+ARGI(ADDI(
+          LSHI(
+               INDIRI(ADDRLP(i)),
+               CNSTI(1)),
+          CNSTI(2)))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	%edi
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%edi
+LSHI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(1))
+reg: LSHI(reg,rc5) / ?	movl	%0,%c
+	sall	%1,%c
+	sall	$1,%edi
+ARGI(LSHI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(1)))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	%edi
+INDIRI(ADDRLP(i))
+reg: mr / 	movl	%0,%c
+	movl	-4(%ebp),%edi
+ASGNI(
+     VREGP(75),
+     INDIRI(ADDRLP(i)))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(75))
+reg: INDIRI(VREGP) / # read register
+INDIRD(ADDP(
+          LSHI(
+               INDIRI(VREGP(75)),
+               CNSTI(3)),
+          ADDRLP(summare)))
+freg: memf / 	fld%0
+	fldl	-491656(%ebp,%edi,8)
+ARGD(INDIRD(ADDP(
+               LSHI(
+                    INDIRI(VREGP(75)),
+                    CNSTI(3)),
+               ADDRLP(summare))))
+stmt: ARGD(freg) / 	subl	$8,%%esp
+	fstpl	(%%esp)
+	subl	$8,%esp
+	fstpl	(%esp)
+INDIRI(VREGP(75))
+reg: INDIRI(VREGP) / # read register
+ADDI(
+     INDIRI(VREGP(75)),
+     CNSTI(1))
+reg: ADDI(reg,mrc) / ?	movl	%0,%c
+	addl	%1,%c
+	addl	$1,%edi
+ARGI(ADDI(
+          INDIRI(VREGP(75)),
+          CNSTI(1)))
+stmt: ARGI(mrca) / 	pushl	%0
+	pushl	%edi
+ARGP(ADDRGP(65))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$65
+CALLI(ADDRGP(printf))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_printf
+	addl	$24,%esp
+
+; Tree 152
+LABELV(58)
+stmt: LABELV / %a:
+_$58:
+; Line 76
+
+; Tree 153
+ASGNI(
+     ADDRLP(i),
+     ADDI(
+          INDIRI(ADDRLP(i)),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	-4(%ebp)
+; Line 76
+
+; Tree 154
+LTI(
+     INDIRI(ADDRLP(i)),
+     CNSTI(15))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$15,-4(%ebp)
+	jl	_$57
+; Line 80
+                                                               end for
+; Line 80
+
+; Tree 157
+ARGP(ADDRGP(66))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	$_$66
+CALLI(ADDRGP(puts))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_puts
+	addl	$4,%esp
+; Line 81
+
+; Tree 159
+ADDRLP(foutname)
+reg: addr / 	leal	%0,%c
+	leal	-491806(%ebp),%edi
+ARGP(ADDRLP(foutname))
+stmt: ARGP(mrca) / 	pushl	%0
+	pushl	%edi
+CALLI(ADDRGP(puts))
+reg: CALLI(addrj) / 	call	%0
+	addl	$%a,%%esp
+	call	_puts
+	addl	$4,%esp
+; Line 83
+
+; Tree 161
+CALLI(ADDRGP(getchar))
+reg: CALLI(addrj) / 	call	%0
+	call	_getchar
+; Line 85
+                                                                return
+
+; Tree 163
+CNSTI(0)
+reg: con / 	movl	%0,%c
+	movl	$0,%eax
+RETI(CNSTI(0))
+stmt: RETI(reg) / # ret
+
+; Tree 163
+LABELV(4)
+stmt: LABELV / %a:
+_$4:
+; Line 86
+                                                          end function
+---------------------------------------------------end of main. Unused:  none.

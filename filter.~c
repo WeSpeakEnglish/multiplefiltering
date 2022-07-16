@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[ ]){
+FILE *fileptr,*fwriter; // указатели на потоки (файл)
+char c; // константа-приёмник
+char filename[40]; // массив для имени файла
+char foutname[11]={'f','i','l','e','0','0','.','o','u','t','\0'}; // генерируемый выходной файл
+char inputchr[5]={'\012'}; // массив для преобразования входных величин
+int i,input;
+
+i=0;   // начальное значение индекса
+
+
+
+if(argc)printf("The digital filtering version 0.3 beta\n"); // Заголовок проги
+puts("Put input signal file name here: "); // запрос имени файла
+gets(filename);                            // получаем имя входного файла
+if((fileptr = fopen(filename,"r")) == NULL){ // открыть поток fileptr на чтение
+	perror(filename);      // если имя неправильное - выкидываем ошибку
+	main(0,0);                              // возврат в main!
+	return 1;
+	}
+
+if((fwriter = fopen(foutname,"w")) == NULL){ // открыть поток fwriter на запись
+	perror(foutname);      // если записать не можем - выкидываем ошибку
+	main(0,0);                              // возврат в main!
+	return 1;
+	}
+
+while((c=getc(fileptr)) != EOF){             // пока не достигнут конец файла...
+ if(c != '\012'){                             // пока не встретится разделитель (LF eq 0x0A)
+	i++;
+inputchr[i] = c;    // заносим в массив для преобразования строки в число
+ }
+if ((c == '\012')||(i > 4))
+ {
+input = atoi(inputchr);
+printf("%d \n",input);
+ for(i=0;i<5;i++)inputchr[i]='\012'; // если встретился разделитель обнуляем массив
+ i=0;        // сбрасываем индекс
+ 	 }
+
+
+}
+//	fputc(c,fwriter);
+fclose(fileptr);                            // закрыть файл
+fclose(fwriter);                            // закрыть файл
+	getchar();                              // ждать ввода символа
+
+return 0;
+	}
+
+
+
+

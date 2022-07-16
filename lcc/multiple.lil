@@ -1,0 +1,640 @@
+
+------------------------------------------------------------Function Filtering
+; Line 23
+                                                        start function
+; Line 25
+
+; Tree 5
+ASGNI(
+     ADDRFP(input),
+     SUBI(
+          INDIRI(ADDRFP(input)),
+          CNSTI(2048)))
+stmt: ASGNI(addr,SUBI(mem,rc)) / 	subl	%2,%1%o
+	subl	$2048,12(%ebp)
+; Line 26
+
+; Tree 7
+ADDRGP(3)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs1+1280,%edi
+ASGNP(
+     ADDRGP(Coefs_ptr),
+     ADDRGP(3))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr
+; Line 27
+
+; Tree 9
+ADDRGP(5)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs2+1280,%edi
+ASGNP(
+     ADDRGP(4),
+     ADDRGP(5))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+4
+; Line 28
+
+; Tree 11
+ADDRGP(7)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs3+1280,%edi
+ASGNP(
+     ADDRGP(6),
+     ADDRGP(7))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+8
+; Line 29
+
+; Tree 13
+ADDRGP(9)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs4+1280,%edi
+ASGNP(
+     ADDRGP(8),
+     ADDRGP(9))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+12
+; Line 30
+
+; Tree 15
+ADDRGP(11)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs5+1280,%edi
+ASGNP(
+     ADDRGP(10),
+     ADDRGP(11))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+16
+; Line 31
+
+; Tree 17
+ADDRGP(13)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs6+1280,%edi
+ASGNP(
+     ADDRGP(12),
+     ADDRGP(13))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+20
+; Line 32
+
+; Tree 19
+ADDRGP(15)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs7+1280,%edi
+ASGNP(
+     ADDRGP(14),
+     ADDRGP(15))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+24
+; Line 33
+
+; Tree 21
+ADDRGP(17)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs8+1280,%edi
+ASGNP(
+     ADDRGP(16),
+     ADDRGP(17))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+28
+; Line 34
+
+; Tree 23
+ADDRGP(19)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs9+1280,%edi
+ASGNP(
+     ADDRGP(18),
+     ADDRGP(19))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+32
+; Line 35
+
+; Tree 25
+ADDRGP(21)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs10+1280,%edi
+ASGNP(
+     ADDRGP(20),
+     ADDRGP(21))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+36
+; Line 36
+
+; Tree 27
+ADDRGP(23)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs11+1280,%edi
+ASGNP(
+     ADDRGP(22),
+     ADDRGP(23))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+40
+; Line 37
+
+; Tree 29
+ADDRGP(25)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs12+1280,%edi
+ASGNP(
+     ADDRGP(24),
+     ADDRGP(25))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+44
+; Line 38
+
+; Tree 31
+ADDRGP(27)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs13+1280,%edi
+ASGNP(
+     ADDRGP(26),
+     ADDRGP(27))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+48
+; Line 39
+
+; Tree 33
+ADDRGP(29)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs14+1280,%edi
+ASGNP(
+     ADDRGP(28),
+     ADDRGP(29))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+52
+; Line 40
+
+; Tree 35
+ADDRGP(31)
+reg: addr / 	leal	%0,%c
+	leal	_Coeffs15+1280,%edi
+ASGNP(
+     ADDRGP(30),
+     ADDRGP(31))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edi,_Coefs_ptr+56
+; Line 42
+                                                                   for
+
+; Tree 37
+ASGNI(
+     ADDRGP(i),
+     CNSTI(0))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$0,_i
+
+; Tree 38
+LABELV(32)
+stmt: LABELV / %a:
+_$32:
+; Line 43
+
+; Tree 41
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%edi
+ASGNI(
+     VREGP(41),
+     INDIRI(ADDRGP(i)))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(41))
+reg: INDIRI(VREGP) / # read register
+MULI(
+     CNSTI(644),
+     INDIRI(VREGP(41)))
+reg: MULI(con,mr) / 	imul	%0,%1,%c%o
+	imul	$644,_i,%esi
+ADDP(
+     MULI(
+          CNSTI(644),
+          INDIRI(VREGP(41))),
+     ADDRGP(36))
+reg: addr / 	leal	%0,%c
+	leal	_history+640(,%esi),%esi
+ASGNP(
+     ADDP(
+          LSHI(
+               INDIRI(VREGP(41)),
+               CNSTI(2)),
+          ADDRGP(hist_ptr)),
+     ADDP(
+          MULI(
+               CNSTI(644),
+               INDIRI(VREGP(41))),
+          ADDRGP(36)))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%esi,_hist_ptr(,%edi,4)
+; Line 44
+
+; Tree 43
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%edi
+CNSTD(0)
+dcon0: CNSTD / 	fldz
+	fldz
+ASGND(
+     ADDP(
+          LSHI(
+               INDIRI(ADDRGP(i)),
+               CNSTI(3)),
+          ADDRGP(out)),
+     CNSTD(0))
+stmt: ASGND(addr,freg) / 	fstpl	%0
+	fstpl	_out(,%edi,8)
+; Line 45
+                                                                   for
+
+; Tree 45
+ASGNI(
+     ADDRGP(k),
+     CNSTI(1))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	$1,_k
+
+; Tree 46
+LABELV(37)
+stmt: LABELV / %a:
+_$37:
+; Line 46
+
+; Tree 49
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%edi
+INDIRP(ADDP(
+          LSHI(
+               INDIRI(ADDRGP(i)),
+               CNSTI(2)),
+          ADDRGP(hist_ptr)))
+reg: mr / 	movl	%0,%c
+	movl	_hist_ptr(,%edi,4),%edi
+ASGNP(
+     VREGP(42),
+     INDIRP(ADDP(
+               LSHI(
+                    INDIRI(ADDRGP(i)),
+                    CNSTI(2)),
+               ADDRGP(hist_ptr))))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(42))
+reg: INDIRP(VREGP) / # read register
+INDIRP(VREGP(42))
+reg: INDIRP(VREGP) / # read register
+INDIRI(ADDP(
+          INDIRP(VREGP(42)),
+          CNSTI(-4)))
+reg: mr / 	movl	%0,%c
+	movl	-4(%edi),%esi
+ASGNI(
+     INDIRP(VREGP(42)),
+     INDIRI(ADDP(
+               INDIRP(VREGP(42)),
+               CNSTI(-4))))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	%esi,(,%edi)
+; Line 47
+
+; Tree 51
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%edi
+ASGNI(
+     VREGP(43),
+     INDIRI(ADDRGP(i)))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(43))
+reg: INDIRI(VREGP) / # read register
+ADDP(
+     LSHI(
+          INDIRI(VREGP(43)),
+          CNSTI(2)),
+     ADDRGP(hist_ptr))
+reg: addr / 	leal	%0,%c
+	leal	_hist_ptr(,%edi,4),%esi
+ASGNP(
+     VREGP(44),
+     ADDP(
+          LSHI(
+               INDIRI(VREGP(43)),
+               CNSTI(2)),
+          ADDRGP(hist_ptr)))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(44))
+reg: INDIRP(VREGP) / # read register
+INDIRP(INDIRP(VREGP(44)))
+reg: mr / 	movl	%0,%c
+	movl	(,%esi),%ebx
+ASGNP(
+     VREGP(45),
+     INDIRP(INDIRP(VREGP(44))))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(44))
+reg: INDIRP(VREGP) / # read register
+INDIRP(VREGP(45))
+reg: INDIRP(VREGP) / # read register
+ADDP(
+     INDIRP(VREGP(45)),
+     CNSTI(-4))
+reg: ADDP(reg,mrc) / ?	movl	%0,%c
+	addl	%1,%c
+	movl	%ebx,%edx
+	addl	$-4,%edx
+ASGNP(
+     INDIRP(VREGP(44)),
+     ADDP(
+          INDIRP(VREGP(45)),
+          CNSTI(-4)))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%edx,(,%esi)
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%esi
+ADDP(
+     LSHI(
+          INDIRI(ADDRGP(i)),
+          CNSTI(2)),
+     ADDRGP(Coefs_ptr))
+reg: addr / 	leal	%0,%c
+	leal	_Coefs_ptr(,%esi,4),%esi
+ASGNP(
+     VREGP(46),
+     ADDP(
+          LSHI(
+               INDIRI(ADDRGP(i)),
+               CNSTI(2)),
+          ADDRGP(Coefs_ptr)))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(46))
+reg: INDIRP(VREGP) / # read register
+INDIRP(INDIRP(VREGP(46)))
+reg: mr / 	movl	%0,%c
+	movl	(,%esi),%edx
+ASGNP(
+     VREGP(47),
+     INDIRP(INDIRP(VREGP(46))))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(46))
+reg: INDIRP(VREGP) / # read register
+INDIRP(VREGP(47))
+reg: INDIRP(VREGP) / # read register
+ADDP(
+     INDIRP(VREGP(47)),
+     CNSTI(-8))
+reg: ADDP(reg,mrc) / ?	movl	%0,%c
+	addl	%1,%c
+	movl	%edx,%ecx
+	addl	$-8,%ecx
+ASGNP(
+     INDIRP(VREGP(46)),
+     ADDP(
+          INDIRP(VREGP(47)),
+          CNSTI(-8)))
+stmt: ASGNP(addr,rc) / 	movl	%1,%0
+	movl	%ecx,(,%esi)
+INDIRI(VREGP(43))
+reg: INDIRI(VREGP) / # read register
+ADDP(
+     LSHI(
+          INDIRI(VREGP(43)),
+          CNSTI(3)),
+     ADDRGP(out))
+reg: addr / 	leal	%0,%c
+	leal	_out(,%edi,8),%edi
+ASGNP(
+     VREGP(48),
+     ADDP(
+          LSHI(
+               INDIRI(VREGP(43)),
+               CNSTI(3)),
+          ADDRGP(out)))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(48))
+reg: INDIRP(VREGP) / # read register
+INDIRP(VREGP(45))
+reg: INDIRP(VREGP) / # read register
+INDIRP(VREGP(47))
+reg: INDIRP(VREGP) / # read register
+INDIRD(INDIRP(VREGP(47)))
+freg: memf / 	fld%0
+	fldl	(,%edx)
+MULD(
+     CVID(INDIRI(INDIRP(VREGP(45)))),
+     INDIRD(INDIRP(VREGP(47))))
+freg: MULD(CVID(mem32),freg) / 	fimull	%0
+	fimull	(,%ebx)
+INDIRP(VREGP(48))
+reg: INDIRP(VREGP) / # read register
+ADDD(
+     MULD(
+          CVID(INDIRI(INDIRP(VREGP(45)))),
+          INDIRD(INDIRP(VREGP(47)))),
+     INDIRD(INDIRP(VREGP(48))))
+freg: ADDD(freg,flt) / 	fadd%1
+	faddl	(,%edi)
+ASGND(
+     INDIRP(VREGP(48)),
+     ADDD(
+          MULD(
+               CVID(INDIRI(INDIRP(VREGP(45)))),
+               INDIRD(INDIRP(VREGP(47)))),
+          INDIRD(INDIRP(VREGP(48)))))
+stmt: ASGND(addr,freg) / 	fstpl	%0
+	fstpl	(,%edi)
+
+; Tree 53
+LABELV(38)
+stmt: LABELV / %a:
+_$38:
+; Line 45
+
+; Tree 66
+ASGNP(
+     VREGP(49),
+     ADDRGP(k))
+stmt: ASGNP(VREGP,reg) / # write register
+ASGNI(
+     INDIRP(VREGP(49)),
+     ADDI(
+          INDIRI(INDIRP(VREGP(49))),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	_k
+; Line 45
+
+; Tree 55
+LTI(
+     INDIRI(ADDRGP(k)),
+     CNSTI(161))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$161,_k
+	jl	_$37
+; Line 49
+                                                               end for
+; Line 49
+
+; Tree 58
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%edi
+INDIRP(ADDP(
+          LSHI(
+               INDIRI(ADDRGP(i)),
+               CNSTI(2)),
+          ADDRGP(hist_ptr)))
+reg: mr / 	movl	%0,%c
+	movl	_hist_ptr(,%edi,4),%edi
+INDIRI(ADDRFP(input))
+reg: mr / 	movl	%0,%c
+	movl	12(%ebp),%esi
+ASGNI(
+     INDIRP(ADDP(
+               LSHI(
+                    INDIRI(ADDRGP(i)),
+                    CNSTI(2)),
+               ADDRGP(hist_ptr))),
+     INDIRI(ADDRFP(input)))
+stmt: ASGNI(addr,rc) / 	movl	%1,%0
+	movl	%esi,(,%edi)
+; Line 50
+
+; Tree 60
+INDIRI(ADDRGP(i))
+reg: mr / 	movl	%0,%c
+	movl	_i,%edi
+ASGNI(
+     VREGP(50),
+     INDIRI(ADDRGP(i)))
+stmt: ASGNI(VREGP,reg) / # write register
+INDIRI(VREGP(50))
+reg: INDIRI(VREGP) / # read register
+ADDP(
+     LSHI(
+          INDIRI(VREGP(50)),
+          CNSTI(3)),
+     ADDRGP(out))
+reg: addr / 	leal	%0,%c
+	leal	_out(,%edi,8),%esi
+ASGNP(
+     VREGP(51),
+     ADDP(
+          LSHI(
+               INDIRI(VREGP(50)),
+               CNSTI(3)),
+          ADDRGP(out)))
+stmt: ASGNP(VREGP,reg) / # write register
+INDIRP(VREGP(51))
+reg: INDIRP(VREGP) / # read register
+INDIRI(VREGP(50))
+reg: INDIRI(VREGP) / # read register
+INDIRP(ADDP(
+          LSHI(
+               INDIRI(VREGP(50)),
+               CNSTI(2)),
+          ADDRGP(Coefs_ptr)))
+reg: mr / 	movl	%0,%c
+	movl	_Coefs_ptr(,%edi,4),%edi
+INDIRD(INDIRP(ADDP(
+               LSHI(
+                    INDIRI(VREGP(50)),
+                    CNSTI(2)),
+               ADDRGP(Coefs_ptr))))
+freg: memf / 	fld%0
+	fldl	(,%edi)
+MULD(
+     CVID(INDIRI(ADDRFP(input))),
+     INDIRD(INDIRP(ADDP(
+                    LSHI(
+                         INDIRI(VREGP(50)),
+                         CNSTI(2)),
+                    ADDRGP(Coefs_ptr)))))
+freg: MULD(CVID(mem32),freg) / 	fimull	%0
+	fimull	12(%ebp)
+INDIRP(VREGP(51))
+reg: INDIRP(VREGP) / # read register
+ADDD(
+     MULD(
+          CVID(INDIRI(ADDRFP(input))),
+          INDIRD(INDIRP(ADDP(
+                         LSHI(
+                              INDIRI(VREGP(50)),
+                              CNSTI(2)),
+                         ADDRGP(Coefs_ptr))))),
+     INDIRD(INDIRP(VREGP(51))))
+freg: ADDD(freg,flt) / 	fadd%1
+	faddl	(,%esi)
+ASGND(
+     INDIRP(VREGP(51)),
+     ADDD(
+          MULD(
+               CVID(INDIRI(ADDRFP(input))),
+               INDIRD(INDIRP(ADDP(
+                              LSHI(
+                                   INDIRI(VREGP(50)),
+                                   CNSTI(2)),
+                              ADDRGP(Coefs_ptr))))),
+          INDIRD(INDIRP(VREGP(51)))))
+stmt: ASGND(addr,freg) / 	fstpl	%0
+	fstpl	(,%esi)
+
+; Tree 60
+LABELV(33)
+stmt: LABELV / %a:
+_$33:
+; Line 42
+
+; Tree 66
+ASGNP(
+     VREGP(52),
+     ADDRGP(i))
+stmt: ASGNP(VREGP,reg) / # write register
+ASGNI(
+     INDIRP(VREGP(52)),
+     ADDI(
+          INDIRI(INDIRP(VREGP(52))),
+          CNSTI(1)))
+stmt: ASGNI(addr,ADDI(mem,con1)) / 	incl	%1%o
+	incl	_i
+; Line 42
+
+; Tree 62
+LTI(
+     INDIRI(ADDRGP(i)),
+     CNSTI(15))
+stmt: LTI(mem,rc) / 	cmpl	%1,%0
+	jl	%a
+	cmpl	$15,_i
+	jl	_$32
+; Line 52
+                                                               end for
+; Line 52
+                                                                return
+
+; Tree 65
+INDIRP(ADDRFP(2))
+reg: mr / 	movl	%0,%c
+	movl	8(%ebp),%edi
+ASGNB(
+     INDIRP(ADDRFP(2)),
+     INDIRB(LOADP(ADDRGP(out))))
+stmt: ASGNB(reg,INDIRB(LOADP(addr))) / 	leal	%1,%%esi
+	movl	$%a,%%ecx
+	rep
+	movsb
+	leal	_out,%esi
+	movl	$120,%ecx
+	rep
+	movsb
+
+; Tree 65
+LABELV(1)
+stmt: LABELV / %a:
+_$1:
+; Line 53
+                                                          end function
+------------------------------------------------end of Filtering. Unused:  eax
